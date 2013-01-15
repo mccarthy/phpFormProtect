@@ -1,0 +1,16 @@
+/*
+Welcome to phpFormProtect.
+
+TODO:
+-separate test code from the test form
+-email report
+-add logging
+-add license
+
+
+
+akismet
+project honeypot
+run spam assassin http://ppadron.blog.br/2010/05/04/php-api-to-spamassassin-spamd-protocol/
+
+*/
