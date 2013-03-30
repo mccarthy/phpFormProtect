@@ -7,12 +7,6 @@ Installation
 	<?php include 'phpfp/phpfp.php'; ?>
 4) The file "contact-process.php" contains sample code showing how to use the class.  You will either need to use this file, or add similar calls to your form processing page.
 
-
-CHANGES:
--path to phpfp.php in contact.php and readme
--uncomment code to hide the hidden form field
--remove extra hudden form field (first one)
-
 TODO:
 -separate test code from the test form
 -email report

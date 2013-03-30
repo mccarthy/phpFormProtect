@@ -1,16 +1,14 @@
 <?php
 
-//$recipient="danielmccarthy";
-$recipient="dan@mccarthyphoto.com";
-$subject="North Conway Chalet Request";
-$redirect="contact-thanks.php";
-$recipient_name="North-Conway-Chalet.com";
+$recipient="you@example.com";
+$subject="Website Form Submission";
+$redirect="contact.php";
 
 include ('phpfp/class.FormProtect.php');
 $fp = new FormProtect;
 $fpResult = $fp->testSubmission($_POST);
 $debugInfo = $fp->formatDebugInfo($_POST, $fpResult);
-//echo $debugInfo;
+echo $debugInfo;
 
 if($fpResult[pass]) {
 	//echo "Passed.  Process as normal, send email, etc.";
