@@ -1,0 +1,34 @@
+notes
+
+
+#the points each test costs for failure
+mouseMovementPoints=1
+usedKeyboardPoints=1
+timedFormPoints=2
+hiddenFieldPoints=3
+tooManyUrlsPoints=3
+spamStringPoints=2
+
+akismetPoints=3
+projectHoneyPotPoints=3
+
+#how many points will flag the form submission as spam
+failureLimit=3
+
+
+
+-Mouse movement--Did the user move their mouse? If not, it might be a spammer. This test is not very strong because lots of people, including the blind, don't use a mouse when filling out forms. Thus I give this test a low point level by default.
+
+-Keyboard used--Did the user type on their keyboard? This is a fairly strong test, because almost everybody will need to use their keyboard when filling out a form (unless they have one of those form filler browser plugins)
+
+-Timed form submission--How long did it take to fill out the form? A spam bot will usually fail this test because it's automated. Also, sometimes spam bot software will have cached form contents, so the form will look like it took days to fill out. This test checks for an upper and lower time limit, and these values can be easily changed to suit your needs.
+
+-Hidden form field--Most spam bots just fill out all form fields and submit them. This test uses a form field that is hidden by CSS, and tests to make sure that field is empty. If a blind person's screen reader sees this hidden field, there is a field label telling them not to fill it out.
+
+-Too many URLs--This function was added by Dave Shuck. Many spammers like to submit a ton of URLs in their posts, so you can configure CFFormProtect to count how many URLs are in the form contents, and raise a flag if the number is above a configured limit.
+
+-Spam keyword list--This function was added by Mary Jo Sminkey. This test allows you to configure a list of spammy words and phrases that will be used to weed out spam. For example, if you use the phrase 'free music', a message containing that phrase might get tagged as spam while just the word 'music' will pass the test. There is a default list of words/phrases included in the ini file (thanks to Mary Jo).
+
+-Akismet--Most of the above tests can be easily bypassed if a spammer hires cheap labor to manually fill out forms. However, Akismet attempts to stop that as well. Akismet is a service provided by the folks that run WordPress (http://akismet.com/). The free service (for personal use) takes form contents as input, and returns a yes/no value to tell you if the submission is spam. This test is disabled by default because you have to obtain an API key. This is easy to do, and CFFormProtect is easy to configure if you want to use Akismet.
+
+-Project Honey Pot--Like Akismet, Proj. Honey Pot can stop manual spammers as well. Project Honey Pot is a free web service that identifies spammers by their IP address. They maintain a huge database of known spammer IP addresses. If you chose to use this service, CFFP will verify the IP address of your site's visitors before it will allow them to submit data through your forms.
