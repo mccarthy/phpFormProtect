@@ -87,7 +87,7 @@ function calcDistance(aX,aY,bX,bY) {
 
 var keysPressed = 0;
 //capture when a user uses types on their keyboard
-document.onkeypress = logKeys;
+document.onkeydown = logKeys;
 
 function logKeys() {
 	//user hit a key, increment the counter
