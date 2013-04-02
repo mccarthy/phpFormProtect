@@ -7,6 +7,9 @@ there wasn't anything similar.  Many thanks to the folks at CFFormProtect, espec
 CONTRIBUTORS
 Dan McCarthy (mcc@rthy.net) 
 
+VERSION
+0.1
+
 INSTALLATION
 -Copy the phpfp folder into the same folder that contains the form and form processing page on your web host
 -Put this  beween the form tags of the form you want to protect: 
