@@ -4,6 +4,17 @@ phpFormProtect is a rough port of CFFormProtect (http://cfformprotect.riaforge.o
 forms from spammers in a way that doesn't annoy users.  We found that when switching from ColdFusion to PHP, 
 there wasn't anything similar.  Many thanks to the folks at CFFormProtect, especially for fp.js, which is a copy of cffp.js.
 
+phpFormProtect works by running each submission through a number of tests, and then scoring the submission.  Any one of the tests by itself has flaws, but working together they provide a really good indicator of the spamminess of a given form submission.  The last two tests by default cause failure based on the points assigned.  This is easily configurable.
+
+The tests are as follows:
+-Hidden Form Field - If hidden form field is filled in, this is an indicator of spam
+-Time Form Submission - If form is filled out too fast or too slow, this is an indicator of spam
+-Too many URLs - If the comment field has too many URLs (Number is configurable) this is an indicator of spam
+-Mouse Movement - If the user does not use their mouse, this is an indicator of spam
+-Used Keyboard - If the user does not use their keybaord, this is an indicator of spam
+-Validate Referer - If the HTTP referer does not match the form URL, we shouldn't accept the submission.
+-Validate Email - If the email address provided in the form is not valid from a syntax perspective, we shouldn't accept the submission.
+
 CONTRIBUTORS
 Dan McCarthy (mcc@rthy.net) 
 
@@ -18,6 +29,7 @@ INSTALLATION
 -You can either use the sample code files, or add similar logic to your form processing page.
 
 TODO
+-Eliminate or fix spam words test
 -Add logging
 -Add config file
 -Move JS into <head> 
