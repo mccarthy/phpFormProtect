@@ -1,10 +1,9 @@
 phpFormProtect
 -----------------
-phpFormProtect is a rough port of CFFormProtect (http://cfformprotect.riaforge.org/) which protects 
-forms from spammers in a way that doesn't annoy users.  We found that when switching from ColdFusion to PHP, 
-there wasn't anything similar.  Many thanks to the folks at CFFormProtect, especially for fp.js, which is a copy of cffp.js.
+phpFormProtect protects forms from spammers in a way that doesn't annoy users.  It is an alternative to a CAPTCHA, and could also be used to prevent comment spam.  It works by running each submission through a number of tests, and then scoring the submission.  Any one of the tests by itself has flaws, but working together they provide a really good indicator of the spamminess of a given form submission.  The last two tests by default cause failure based on the points assigned.  This is easily configurable.
 
-phpFormProtect works by running each submission through a number of tests, and then scoring the submission.  Any one of the tests by itself has flaws, but working together they provide a really good indicator of the spamminess of a given form submission.  The last two tests by default cause failure based on the points assigned.  This is easily configurable.
+This project is a port of CFFormProtect (http://cfformprotect.riaforge.org/). We found that when switching from ColdFusion to PHP, 
+there wasn't anything similar.  Many thanks to the folks at CFFormProtect, especially for fp.js, which is a copy of cffp.js.  
 
 The tests are as follows:
 -Hidden Form Field - If hidden form field is filled in, this is an indicator of spam
