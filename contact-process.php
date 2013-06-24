@@ -3,17 +3,17 @@
 $recipient="you@example.com";
 $subject="Website Form Submission";
 $redirect="contact.php";
+if ($email=="") $email=$recipient;
 
 include ('phpfp/class.FormProtect.php');
 $fp = new FormProtect;
 $fpResult = $fp->testSubmission($_POST);
 $debugInfo = $fp->formatDebugInfo($_POST, $fpResult);
 echo $debugInfo;
-
+	
 if($fpResult[pass]) {
 	//echo "Passed.  Process as normal, send email, etc.";
-	if ($email=="") $email=$recipient;
-	if ($subject=="") $subject="Form Submission";
+	if ($subject=="") $subject="[phpFromProtect: Pass] Form Submission";
 	$message  = "Email: ".$email."<br />";
 	$message .= "Phone: ".$phone."<br />";
 	$message .= "Comments: ".$comments."<br />";
@@ -27,8 +27,9 @@ if($fpResult[pass]) {
 }
 else {
 	//echo "Failed.  Log, block IP, email, etc.";
+	if ($subject=="") $subject="Form Submission";
 	$message  = $debugInfo;
-	$subject  = "[phpFromProtect Fail] " . $subject;
+	$subject  = "[phpFromProtect: Fail] " . $subject;
 	$headers  = "From: $email\n";
 	$headers .= "Return-path: ".$recipient."\n";
 	$headers .= "MIME-Version: 1.0\n";
