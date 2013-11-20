@@ -2,12 +2,13 @@
 
 $recipient="you@example.com";
 $subject="Website Form Submission";
-$redirect="contact.php";
 if ($email=="") $email=$recipient;
 
 include ('phpfp/class.FormProtect.php');
 $fp = new FormProtect;
 $fpResult = $fp->testSubmission($_POST);
+
+echo '<a href="contact.php">Submit Form Again</a>';
 $debugInfo = $fp->formatDebugInfo($_POST, $fpResult);
 echo $debugInfo;
 	
@@ -37,11 +38,4 @@ else {
 	mail($recipient,$subject,$message,$headers);
 }
 
-if ($redirect)
-{
-header("Location: $redirect");	
-} 
-else {
-	echo "An unknown error has occurred.";
-}
 ?>

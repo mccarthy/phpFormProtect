@@ -39,6 +39,7 @@ TODO
 	http://www.spamhaus.org/dbl/
 	http://www.lockergnome.com/net/2012/04/23/checking-a-domain-against-the-spamhaus-dbl-in-php/
 -Integrate http://www.linksleeve.org/
+-Add ideas found here: http://www.webmasterworld.com/php/4406126.htm
 
 RESEARCH/INSPIRATION
 http://stackoverflow.com/questions/1577918/blocking-comment-spam-without-using-captcha
