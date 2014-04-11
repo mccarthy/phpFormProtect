@@ -28,6 +28,8 @@ INSTALLATION
 -You can either use the sample code files, or add similar logic to your form processing page.
 
 TODO
+-Include IP, Reverse IP Lookup, Referring URL, and Browser in Email
+-Handle empty form post better
 -Eliminate or fix spam words test
 -Add logging
 -Add config file
