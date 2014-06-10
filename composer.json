@@ -1,5 +1,10 @@
 {
 	"name": "mccarthy/php-form-protect",
 	"description": "phpFormProtect allows you to protect a form from spammers without using a captcha.",
-	"license": "MPL-2.0"
+	"license": "MPL-2.0",
+	"autoload": {
+		"classmap": [
+			"phpfp/class.FormProtect.php"
+		]
+	}
 }
