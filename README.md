@@ -19,7 +19,7 @@ The tests are as follows:
 Dan McCarthy (mcc@rthy.net)
 
 ### Version
-0.1
+0.2
 
 ### Installation Via Composer
 
