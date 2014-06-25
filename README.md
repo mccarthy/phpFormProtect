@@ -1,6 +1,6 @@
 # phpFormProtect
 
-phpFormProtect protects forms from spammers in a way that doesn't annoy users.  It is an alternative to a CAPTCHA, and could also be used to prevent comment spam.  It works by running each submission through a number of tests, and then scoring the submission.  Any one of the tests by itself has flaws, but working together they provide a really good indicator of the spamminess of a given form submission.  The last two tests by default cause failure based on the points assigned.  This is easily configurable.
+phpFormProtect protects forms from spammers in a way that doesn't annoy users.  It is an alternative to a CAPTCHA, and could also be used to prevent comment spam.  It works by running each submission through a number of tests, and then scoring the submission.  Any one of the tests by itself has flaws, but working together they provide a high quality indicator of the spamminess of a given form submission.  The last two tests by default cause failure based on the points assigned.  This is easily configurable.
 
 This project is a port of [CFFormProtect](http://cfformprotect.riaforge.org/). We found that when switching from ColdFusion to PHP,
 there wasn't anything similar.  Many thanks to the folks at CFFormProtect, especially for fp.js, which is a copy of cffp.js.
@@ -21,15 +21,13 @@ Dan McCarthy (mcc@rthy.net)
 ### Version
 0.1
 
-### Installation
-
-#### Via Composer
+### Installation Via Composer
 
 Require the package within your `composer.json`:
 
 ```
 "require": {
-    "jacobbennett/sendyphp": "dev-master"
+    "mccarthy/phpFormProtect": "master"
 }
 ```
 
@@ -39,15 +37,33 @@ Update Composer:
 $ composer update
 ```
 
-#### Manual Installation
+### Manual Installation
 
 - Copy the phpfp folder into the same folder that contains the form and form processing page on your web host
-- Put this  beween the form tags of the form you want to protect:
+
+### Instructions for Use
+
+- Put this line of code between the form tags of the form you want to protect:
 
 ```
 <?php include 'phpfp/phpfp.php'; ?>
 ```
 
+- On the form processing page, do something like the following:
+
+```
+$fp = new FormProtect;
+$fpResult = $fp->testSubmission($_POST);
+
+if($fpResult[pass]) {
+	//echo "Passed, looks like a valid submission.  Process as normal, send email, etc.";
+}
+else {
+	//echo "Failed.  Looks like spam.  Log, block IP, email, etc.";
+}
+```
+
+###Sample Code
 - The files "contact.php" and "contact-process.php" contain sample code showing how to use phpFormProtect.
 - You can either use the sample code files, or add similar logic to your form processing page.
 
@@ -64,7 +80,7 @@ $ composer update
 - [ ] Integrate https://code.google.com/p/phpspamdetection/
 - [ ] Integrate [spamhaus dbl](http://www.spamhaus.org/dbl/) - ([Assisting article](http://www.lockergnome.com/net/2012/04/23/checking-a-domain-against-the-spamhaus-dbl-in-php/))
 - [ ] Integrate http://www.linksleeve.org/
-- [ ] Add ideas found here: http://www.webmasterworld.com/php/4406126.htm
+- [ ] Add ideas from http://www.webmasterworld.com/php/4406126.htm
 
 ### Research & Inspiration
 
